@@ -9,7 +9,7 @@
 #define _TZ_INCLUDED
 
 
-#include <lua.h>
+#include <luajit.h>
 
 
 #define TZ_LOCALFILE  "/etc/localtime"        /* local time TZ file */

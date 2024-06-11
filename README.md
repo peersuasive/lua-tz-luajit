@@ -3,6 +3,8 @@
 
 ## Introduction
 
+*This is a sligtly modified version of [lua-tz](https://github.com/anaef/lua-tz) to work with luajit instead of lua*.
+
 Lua TZ provides date and time functions with support for time zones. The core functions have an
 interface similar to the standard functions `os.date` and `os.time`, but additionally accept a
 time zone argument.

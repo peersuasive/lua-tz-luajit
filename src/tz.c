@@ -57,7 +57,7 @@ struct tz_data {
 static int getfield(lua_State *L, int index, const char *key, int d);
 static inline void setfield(lua_State *L, const char *key, int value);
 static inline int days(int year, int month);
-#if LUA_VERSION_NUM < 502
+#if LUAJIT_VERSION_NUM < 20004
 void *luaL_testudata(lua_State *L, int index, const char *name);
 #endif
 
@@ -122,7 +122,7 @@ static inline int days (int year, int month) {
 	return DAYS_PER_MONTH[year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)][month - 1];
 }
 
-#if LUA_VERSION_NUM < 502
+#if LUAJIT_VERSION_NUM < 20004
 void *luaL_testudata (lua_State *L, int index, const char *name) {
 	void  *userdata;
 
@@ -625,7 +625,7 @@ int luaopen_tz (lua_State *L) {
 	};
 
 	/* register functions */
-#if LUA_VERSION_NUM >= 502
+#if LUAJIT_VERSION_NUM >= 20004
 	luaL_newlib(L, functions);
 #else
 	luaL_register(L, luaL_checkstring(L, 1), functions);
